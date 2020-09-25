@@ -7,8 +7,11 @@ public class Trekanter {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
+        System.out.println("Indtast sidelængden a:");
         int a = s.nextInt();
+        System.out.println("Indtast sidelængden b:");
         int b = s.nextInt();
+        System.out.println("Indtast sidelængden c:");
         int c = s.nextInt();
 
         final double cos_A;
@@ -39,31 +42,31 @@ public class Trekanter {
 
         //ugyldig
         if ( a > b + c || b > a + c || c > a + b ) {
-            System.out.println("Noget er galt");
+            System.out.println("Noget er galt!");
         }
 
         //ligesidet trekant
-        if (a == b && b == c) {
+        else if (a == b && b == c) {
             System.out.println("Trekanten er ligesidet");
         }
 
         //ligebenet
-        if (a == b && c != b || b == c && a != c || a == c && b != c) {
+        else if (a == b && c != b || b == c && a != c || a == c && b != c) {
             System.out.println("Trekanten er ligebenet");
         }
 
         //retvinklet
-        if (vinkel_A == 90 || vinkel_B == 90 || vinkel_C == 90){
+        else if (vinkel_A == 90 || vinkel_B == 90 || vinkel_C == 90){
             System.out.println("Trekanten er retvinklet");
         }
 
         //spidsvinklet
-        if (vinkel_A < 90 && vinkel_B < 90 && vinkel_C < 90){
+        else if (vinkel_A < 90 && vinkel_B < 90 && vinkel_C < 90){
             System.out.println("Trekanten er spids");
         }
 
         //stumpvinklet
-        if (vinkel_A > 90 || vinkel_B > 90|| vinkel_C > 90){
+        else if (vinkel_A > 90 || vinkel_B > 90|| vinkel_C > 90){
             System.out.println("Trekanten er stump");
         }
 
