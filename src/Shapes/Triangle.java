@@ -2,15 +2,8 @@ package Shapes;
 
 public class Triangle {
 
-    int a = 0;
-    int b = 0;
-    int c = 0;
-    double cos_A;
-    double cos_B;
-    double cos_C;
-    double vinkel_A;
-    double vinkel_B;
-    double vinkel_C;
+    int a = 0, b = 0, c = 0;
+    double cos_A, cos_B, cos_C, vinkel_A, vinkel_B, vinkel_C;
 
     public Triangle(int x, int y, int z) {
         a = x;
@@ -45,7 +38,7 @@ public class Triangle {
     public boolean isValidTriangle() {
         //ugyldig
         if (a > b + c || b > a + c || c > a + b) {
-            System.out.println("Noget er galt!");
+            //System.out.println("Noget er galt!");
             return false;
         }
         return true;
@@ -53,7 +46,7 @@ public class Triangle {
 
     public boolean isEquilateralTriangle() {
         if (a == b && b == c) {
-            System.out.println("Trekanten er ligesidet");
+            //System.out.println("Trekanten er ligesidet");
             return true;
         }
         return false;
@@ -61,7 +54,7 @@ public class Triangle {
 
     public boolean isIsoscelesTriangle() {
         if ((a == b && c != b) || (b == c && a != c) || (a == c && b != c)) {
-            System.out.println("Trekanten er ligebenet");
+            //System.out.println("Trekanten er ligebenet");
             return true;
         }
         return false;
@@ -69,7 +62,7 @@ public class Triangle {
 
     public boolean isRightAngledTriangle() {
         if ((vinkel_A == 90) || (vinkel_B == 90) || (vinkel_C == 90)) {
-            System.out.println("Trekanten er retvinklet");
+            //System.out.println("Trekanten er retvinklet");
             return true;
         }
         return false;
@@ -77,7 +70,7 @@ public class Triangle {
 
     public boolean isPointedTriangle() {
         if (vinkel_A < 90 && vinkel_B < 90 && vinkel_C < 90) {
-            System.out.println("Trekanten er spids");
+            //System.out.println("Trekanten er spids");
             return true;
         }
         return false;
@@ -85,7 +78,7 @@ public class Triangle {
 
     public boolean isObtuseAngledTriangle() {
         if (vinkel_A > 90 || vinkel_B > 90 || vinkel_C > 90) {
-            System.out.println("Trekanten er stump");
+            //System.out.println("Trekanten er stump");
             return true;
         }
         return false;
