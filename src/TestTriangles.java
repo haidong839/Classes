@@ -1,3 +1,4 @@
+
 import Shapes.Triangle;
 
 import java.util.Scanner;
@@ -14,8 +15,8 @@ public class TestTriangles {
         System.out.println("Indtast sidelængden c:");
         int c = s.nextInt();
 
-        Triangle t = new Triangle();
-        t.getTriangle(a,b,c);
+        Triangle t = new Triangle(a,b,c);
+
 
 
     }

@@ -2,63 +2,97 @@ package Shapes;
 
 public class Triangle {
 
-    int a = 0; int b = 0; int c = 0;
-    double cos_A; double cos_B; double cos_C;
-    double vinkel_A; double vinkel_B; double vinkel_C;
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    double cos_A;
+    double cos_B;
+    double cos_C;
+    double vinkel_A;
+    double vinkel_B;
+    double vinkel_C;
 
-    public void getTriangle(int a, int b, int c){
+    public Triangle(int x, int y, int z) {
+        a = x;
+        b = y;
+        c = z;
 
-        //Cos A
-        cos_A = (Math.pow(b,2)+Math.pow(c,2)-Math.pow(a,2))/(2*b*c);
+        if (isValidTriangle()){
+            //vinkel A
+            cos_A = (Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c);
+            vinkel_A = Math.toDegrees(Math.acos(cos_A));
+            //vinkel B
+            cos_B = (Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c);
+            vinkel_B = Math.toDegrees(Math.acos(cos_B));
+            //vinkel C
+            cos_C = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+            vinkel_C = Math.toDegrees(Math.acos(cos_C));
+        }
+    }
 
-        //Cos B
-        cos_B = (Math.pow(a,2)+Math.pow(c,2)-Math.pow(b,2))/(2*a*c);
+    public double getVinkelA() {
+        return vinkel_A;
+    }
 
-        //Cos C
-        cos_C = (Math.pow(a,2)+Math.pow(b,2)-Math.pow(c,2))/(2*a*b);
+    public double getVinkelB() {
+        return vinkel_B;
+    }
 
-        //vinkel A
-        vinkel_A = Math.toDegrees(Math.acos(cos_A));
+    public double getVinkelC() {
+        return vinkel_C;
+    }
 
-        //vinkel B
-        vinkel_B = Math.toDegrees(Math.acos(cos_B));
-
-        //vinkel C
-        vinkel_C = Math.toDegrees(Math.acos(cos_C));
-
-
+    public boolean isValidTriangle() {
         //ugyldig
-        if ( a > b + c || b > a + c || c > a + b ) {
+        if (a > b + c || b > a + c || c > a + b) {
             System.out.println("Noget er galt!");
+            return false;
         }
+        return true;
+    }
 
-        //ligesidet trekant
-        else if (a == b && b == c) {
+    public boolean isEquilateralTriangle() {
+        if (a == b && b == c) {
             System.out.println("Trekanten er ligesidet");
+            return true;
         }
+        return false;
+    }
 
-        //ligebenet
-        else if (a == b && c != b || b == c && a != c || a == c && b != c) {
+    public boolean isIsoscelesTriangle() {
+        if ((a == b && c != b) || (b == c && a != c) || (a == c && b != c)) {
             System.out.println("Trekanten er ligebenet");
+            return true;
         }
+        return false;
+    }
 
-        //retvinklet
-        else if (vinkel_A == 90 || vinkel_B == 90 || vinkel_C == 90){
+    public boolean isRightAngledTriangle() {
+        if ((vinkel_A == 90) || (vinkel_B == 90) || (vinkel_C == 90)) {
             System.out.println("Trekanten er retvinklet");
+            return true;
         }
+        return false;
+    }
 
-        //spidsvinklet
-        else if (vinkel_A < 90 && vinkel_B < 90 && vinkel_C < 90){
+    public boolean isPointedTriangle() {
+        if (vinkel_A < 90 && vinkel_B < 90 && vinkel_C < 90) {
             System.out.println("Trekanten er spids");
+            return true;
         }
+        return false;
+    }
 
-        //stumpvinklet
-        else if (vinkel_A > 90 || vinkel_B > 90|| vinkel_C > 90){
+    public boolean isObtuseAngledTriangle() {
+        if (vinkel_A > 90 || vinkel_B > 90 || vinkel_C > 90) {
             System.out.println("Trekanten er stump");
+            return true;
         }
+        return false;
+    }
 
-    }
-    }
+
+}
 
 
 
